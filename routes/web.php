@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::resource('product',ProductController::class);
+
+URL::forceScheme('https');
