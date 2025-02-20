@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-3xl font-bold mb-4">Add New Product</h1>
+    <h1 class="mb-4 text-3xl font-bold">Add New Product</h1>
 
-    <form action="{{ route('product.store') }}" method="POST" class="space-y-4">
+    <form action="{{ route('product.store', [], true) }}" method="POST" class="space-y-4">
         @csrf
 
         <div>
@@ -13,7 +13,7 @@
                           @error('product_name') border-red-500 @enderror"
                    value="{{ old('product_name') }}">
             @error('product_name')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
             @enderror
         </div>
 
@@ -24,7 +24,7 @@
                           @error('category') border-red-500 @enderror"
                    value="{{ old('category') }}">
             @error('category')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
             @enderror
         </div>
 
@@ -35,7 +35,7 @@
                           @error('harga_jual') border-red-500 @enderror"
                    value="{{ old('harga_jual') }}">
             @error('harga_jual')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
             @enderror
         </div>
 
@@ -46,7 +46,7 @@
                           @error('harga_beli') border-red-500 @enderror"
                    value="{{ old('harga_beli') }}">
             @error('harga_beli')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
             @enderror
         </div>
 
@@ -57,7 +57,7 @@
                           @error('packaging') border-red-500 @enderror"
                    value="{{ old('packaging') }}">
             @error('packaging')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
             @enderror
         </div>
 
@@ -68,12 +68,12 @@
                           @error('packaging_qty') border-red-500 @enderror"
                    value="{{ old('packaging_qty') }}">
             @error('packaging_qty')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
             @enderror
         </div>
 
         <button type="submit" 
-                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">
             Save Product
         </button>
     </form>

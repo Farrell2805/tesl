@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-3xl font-bold mb-4">{{ $product->product_name }}</h1>
+    <h1 class="mb-4 text-3xl font-bold">{{ $product->product_name }}</h1>
 
-    <div class="border p-4 rounded-lg">
+    <div class="p-4 border rounded-lg">
         <p><strong>Category:</strong> {{ $product->category }}</p>
         <p><strong>Harga Jual:</strong> 
             Rp. {{ number_format($product->harga_jual, 0, ',', '.') }}
@@ -16,16 +16,16 @@
     </div>
 
     <div class="mt-4">
-        <a href="{{ route('product.edit', $product->id) }}" 
-           class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2">
+        <a href="{{ route('product.edit', $product->id, true) }}" 
+           class="px-4 py-2 mr-2 text-white bg-blue-500 rounded hover:bg-blue-600">
             Edit Product
         </a>
-        <form action="{{ route('product.destroy', $product->id) }}" 
+        <form action="{{ route('product.destroy', $product->id, true) }}" 
               method="POST" class="inline-block">
             @csrf
             @method('DELETE')
             <button type="button" 
-                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 delete-btn">
+                    class="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600 delete-btn">
                 Delete Product
             </button>
         </form>
